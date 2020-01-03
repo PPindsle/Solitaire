@@ -1,32 +1,33 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Random;
 
 public class Deck {
 	
-	private ArrayList<Card> cards;
+	private ArrayList<Card> cards = new ArrayList<Card>();
 	private Random rand = new Random();
 	
-	public Deck() {
-		this.cards = newDeck();
+	public Deck() {	
+		for (int i = 0; i < 4; i++) {
+			for (int y = 0; y < 13; y++) {
+				cards.add(new Card(Suit.getSuits()[i], Rank.getRanks()[y]));
+			}
+		}
 	}
 	
 	public Deck(ArrayList<Card> cards) {
 		this.cards = cards;
 	}
 	
-	private ArrayList<Card> newDeck() {
-		ArrayList<Card> cards = new ArrayList<Card>();
-		for (int i = 0; i < 4; i++) {
-			for (int y = 1; y <= 13; y++) {
-				cards.add(new Card(Suit.getSuits()[i], y));
-			}
-		}
-		return cards;
-	}
-	
 	public void shuffle() {
 		Collections.shuffle(cards);
+	}
+	
+	public void print() {
+		for (int i = 0; i < 52; i++) {
+			System.out.println(cards.get(i).getDescription());
+		}
 	}
 	
 	public ArrayList<Card> getDeck() {

@@ -7,7 +7,7 @@ import javax.swing.JMenuItem;
 
 public class Menu extends JMenuBar {
 	
-	public Menu(Game g) {
+	public Menu(Window window) {
 		JMenu options = new JMenu("Options");
 		add(options);
 		
@@ -18,7 +18,7 @@ public class Menu extends JMenuBar {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				g.restart();
+				window.restart();
 			}
 			
 		});

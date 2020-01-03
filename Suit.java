@@ -1,6 +1,6 @@
 import java.awt.Color;
 
-public class Suit { // TODO trenger jeg disse attributtene?
+public class Suit {
 	
 	private Color color;
 	private String description;
@@ -37,5 +37,5 @@ public class Suit { // TODO trenger jeg disse attributtene?
 	public String getDescription() {
 		return this.description;
 	}
-	
+
 }

@@ -1,30 +1,26 @@
 import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Graphics;
+
+import javax.swing.JPanel;
 
 public class Game {
 	
-	private Frame frame;
 	private Deck deck;
 	private Board board;
-	
-	public Game(Frame f) {
-		this.frame = f;
+	private Window window;
+		
+	public Game(Window window) {
+		this.window = window;
 		start();
 	}
 	
 	private void start() {
 		this.deck = new Deck();
-		deck.shuffle();
+		this.deck.shuffle();
+		this.window.add(this.board = new Board(), BorderLayout.CENTER);
 		
-		this.board = new Board();
-		this.frame.add(board, BorderLayout.CENTER);
-		board.setup(deck.getDeck());
-	}
-	
-	public void restart() {
-		Frame f = this.frame;
-		new Frame(f.getWidth(), f.getHeight());
-		f.setVisible(false);
-		f.dispose();
+		this.board.setup(this.deck.getDeck());
 	}
 
 }
